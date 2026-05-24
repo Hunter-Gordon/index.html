@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>CIN·POWER — Cincinnati High School Athletics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TICKER -->
+<div id="ticker-bar"><div id="ticker-label">⚡ LIVE</div><div id="ticker-inner"><span id="ticker-content"></span></div></div>
+
+<!-- HEADER -->
+<header class="hdr" id="siteHeader">
+  <div class="hdr-inner">
+    <div class="logo" onclick="gTab('home')">
+      <div class="logo-shield">
+        <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 4 L74 18 L74 56 C74 74 58 86 40 92 C22 86 6 74 6 56 L6 18 Z" fill="#e8192c"/>
+          <path d="M40 10 L68 22 L68 56 C68 72 54 82 40 88 C26 82 12 72 12 56 L12 22 Z" fill="#0a0a10"/>
+          <path d="M46 24 L32 46 L42 46 L36 68 L54 42 L44 42 L50 24 Z" fill="#e8192c"/>
+          <text x="40" y="88" font-family="'Bebas Neue',sans-serif" font-size="7" fill="white" text-anchor="middle" letter-spacing="1.5" opacity="0.85">CIN</text>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <div class="logo-wordmark"><span class="logo-cin">CIN</span><span class="logo-dot">·</span><span class="logo-power">POWER</span></div>
+        <span class="logo-sub">Cincinnati Athletics</span>
+      </div>
+    </div>
+    <nav class="nav" id="mainNav">
+      <button id="nb-home" class="act" onclick="gTab('home');closeMenu()">Home</button>
+      <button id="nb-news" onclick="gTab('news');closeMenu()">News</button>
+      <button id="nb-polls" onclick="gTab('polls');closeMenu()">Polls</button>
+      <button id="nb-standings" onclick="gTab('standings');closeMenu()">Standings</button>
+      <button id="nb-predictor" onclick="gTab('predictor');closeMenu()">Predictor</button>
+      <button id="nb-gotw" onclick="gTab('gotw');closeMenu()">Game of Week</button>
+      <button id="nb-login" onclick="doLogin();closeMenu()">
+        <span class="nav-admin-icon">⬡</span> Admin
+      </button>
+    </nav>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ══════════════════ HOME ══════════════════ -->
+<section id="gcl-home" class="pg act">
+
+  <!-- HERO -->
+  <div class="home-hero">
+    <div class="hero-noise"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-glow-left"></div>
+    <div class="hero-glow-right"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Greater Cincinnati High School Athletics
+        <span class="eyebrow-dot"></span>
+      </div>
+      <div class="hero-title-wrap">
+        <div class="hero-logo-big">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="110" cy="110" r="104" stroke="#e8192c" stroke-width="2" stroke-dasharray="6 4" opacity="0.25"/>
+            <path d="M110 18 L188 52 L188 132 C188 168 150 196 110 210 C70 196 32 168 32 132 L32 52 Z" fill="#0a0a10" stroke="#e8192c" stroke-width="2.5"/>
+            <path d="M110 26 L180 56 L180 132 C180 164 146 190 110 203 C74 190 40 164 40 132 L40 56 Z" fill="url(#shieldGrad2)"/>
+            <path d="M122 58 L90 106 L112 106 L98 158 L134 102 L112 102 L126 58 Z" fill="#e8192c" filter="url(#glow2)"/>
+            <polygon points="68,46 70,52 76,52 71,56 73,62 68,58 63,62 65,56 60,52 66,52" fill="#e8192c" opacity="0.9"/>
+            <polygon points="152,46 154,52 160,52 155,56 157,62 152,58 147,62 149,56 144,52 150,52" fill="#e8192c" opacity="0.9"/>
+            <path d="M54 186 Q110 198 166 186 L170 196 Q110 210 50 196 Z" fill="#e8192c"/>
+            <text x="110" y="195" font-family="Bebas Neue,Anton,sans-serif" font-size="11" fill="white" text-anchor="middle" letter-spacing="3">CINCINNATI</text>
+            <defs>
+              <linearGradient id="shieldGrad2" x1="110" y1="26" x2="110" y2="203" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#1a1a28"/>
+                <stop offset="100%" stop-color="#060608"/>
+              </linearGradient>
+              <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <h1 class="hero-title">
+          <span class="ht-line1">POWER</span>
+          <span class="ht-line2">RANKINGS</span>
+        </h1>
+        <div class="hero-year-badge">2025–26</div>
+      </div>
+      <p class="hero-sub">The definitive source for Cincinnati's elite high school athletics</p>
+      <div class="hero-ctas">
+        <button class="hero-btn hero-btn-primary" onclick="pickGender('Boys')">
+          <span class="btn-icon">♂</span>
+          <span class="btn-label">Boys</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="hero-btn hero-btn-secondary" onclick="pickGender('Girls')">
+          <span class="btn-icon">♀</span>
+          <span class="btn-label">Girls</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="hero-btn hero-btn-outline" onclick="pickGender('Both')">
+          <span class="btn-label">All Sports</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">↓ scroll</div>
+  </div>
+
+  <!-- MARQUEE STRIP -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack"></div>
+    <div class="marquee-track" id="marqueeTrack2" aria-hidden="true"></div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar" id="statsBar"></div>
+
+  <!-- FEATURE SECTION -->
+  <div class="home-features">
+    <div class="features-grid">
+      <!-- HOT TEAMS -->
+      <div class="feat-card feat-hot">
+        <div class="feat-card-hdr">
+          <div class="feat-label"><span class="feat-icon">🔥</span><span>Top Ranked</span></div>
+          <div class="feat-season-tag">2025–26</div>
+        </div>
+        <div class="feat-body" id="hot-list"></div>
+      </div>
+
+      <!-- NEWS -->
+      <div class="feat-card feat-news">
+        <div class="feat-card-hdr">
+          <div class="feat-label"><span class="feat-icon">📰</span><span>Latest News</span></div>
+          <button class="feat-see-all" onclick="gTab('news')">All news →</button>
+        </div>
+        <div class="feat-body" id="home-news"></div>
+      </div>
+
+      <!-- POLL -->
+      <div class="feat-card feat-poll">
+        <div class="feat-card-hdr">
+          <div class="feat-label"><span class="feat-icon">📊</span><span>Fan Poll</span></div>
+          <button class="feat-see-all" onclick="gTab('polls')">All polls →</button>
+        </div>
+        <div class="feat-body" id="home-poll"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHOOL SPOTLIGHT -->
+  <div class="home-spotlight-wrap">
+    <div class="spotlight-hdr">
+      <span class="ssn-line"></span>
+      <span class="ssn-title">⭐ School Spotlight</span>
+      <span class="ssn-line"></span>
+    </div>
+    <div id="school-spotlight"></div>
+  </div>
+
+  <!-- SEASON SECTIONS -->
+  <div class="home-seasons">
+    <div class="season-section-hdr">
+      <span class="ssn-line"></span>
+      <span class="ssn-title">Browse by Season</span>
+      <span class="ssn-line"></span>
+    </div>
+    <div class="season-cards-row">
+      <div class="season-card season-fall" onclick="highlightSeason('Fall')">
+        <div class="sc-icon">🍂</div>
+        <div class="sc-name">Fall</div>
+        <div class="sc-sub">Aug – Nov</div>
+        <div class="sc-sports" id="sc-fall-sports"></div>
+      </div>
+      <div class="season-card season-winter" onclick="highlightSeason('Winter')">
+        <div class="sc-icon">❄️</div>
+        <div class="sc-name">Winter</div>
+        <div class="sc-sub">Nov – Mar</div>
+        <div class="sc-sports" id="sc-winter-sports"></div>
+      </div>
+      <div class="season-card season-spring" onclick="highlightSeason('Spring')">
+        <div class="sc-icon">🌸</div>
+        <div class="sc-name">Spring</div>
+        <div class="sc-sub">Mar – Jun</div>
+        <div class="sc-sports" id="sc-spring-sports"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTABLE CINCINNATI SCHOOLS -->
+  <div class="cincy-schools-wrap">
+    <div class="season-section-hdr">
+      <span class="ssn-line"></span>
+      <span class="ssn-title">🏙️ Cincinnati's Finest</span>
+      <span class="ssn-line"></span>
+    </div>
+    <div class="cincy-schools-grid" id="cincySchoolsGrid"></div>
+  </div>
+
+</section>
+
+<!-- ══════════════════ SPORTS ══════════════════ -->
+<section id="gcl-sports" class="pg">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="gTab('home')">← Back</button>
+    <div class="page-title" id="sport-title">SELECT SPORT</div>
+  </div>
+  <div class="gender-filter-bar" id="genderFilterBar"></div>
+  <div class="season-filter-tabs" id="seasonFilterTabs">
+    <button class="sfTab act" onclick="filterBySeason('All',this)">All</button>
+    <button class="sfTab" onclick="filterBySeason('Fall',this)">🍂 Fall</button>
+    <button class="sfTab" onclick="filterBySeason('Winter',this)">❄️ Winter</button>
+    <button class="sfTab" onclick="filterBySeason('Spring',this)">🌸 Spring</button>
+  </div>
+  <div class="sports-grid" id="sportsList"></div>
+</section>
+
+<!-- ══════════════════ RANKINGS ══════════════════ -->
+<section id="gcl-rankings" class="pg">
+  <div class="page-hdr">
+    <button class="back-btn" onclick="gTab('sports')">← Back</button>
+    <div class="rank-hdr-right">
+      <div class="page-title" id="rankTitle">Rankings</div>
+      <div class="rank-controls">
+        <select id="yearSel" onchange="renderRankings()"></select>
+        <span class="rank-badge" id="rankCount">0 teams</span>
+      </div>
+    </div>
+  </div>
+  <div class="rank-view-toggle">
+    <button class="rvt-btn act" id="rvt-table" onclick="setRankView('table',this)">⊟ Table</button>
+    <button class="rvt-btn" id="rvt-cards" onclick="setRankView('cards',this)">⊞ Cards</button>
+  </div>
+  <div class="table-wrap" id="rankTableWrap">
+    <table class="rtable">
+      <thead><tr>
+        <th style="width:44px">#</th>
+        <th>School</th>
+        <th style="width:68px">Record</th>
+        <th style="width:60px">Conf</th>
+        <th style="width:52px">Win%</th>
+        <th style="width:60px">Move</th>
+        <th style="width:52px">Streak</th>
+        <th style="width:110px">Rating</th>
+      </tr></thead>
+      <tbody id="rankBody"></tbody>
+    </table>
+  </div>
+  <div class="rank-cards-wrap" id="rankCardsWrap" style="display:none">
+    <div class="rank-cards-grid" id="rankCardsGrid"></div>
+  </div>
+</section>
+
+<!-- ══════════════════ SCHOOL PROFILE ══════════════════ -->
+<section id="gcl-school" class="pg">
+  <div style="padding:20px 24px 0">
+    <button class="back-btn" onclick="gTab('rankings')">← Back to Rankings</button>
+  </div>
+  <div id="school-detail"></div>
+</section>
+
+<!-- ══════════════════ NEWS ══════════════════ -->
+<section id="gcl-news" class="pg">
+  <div class="page-hdr">
+    <div class="page-title">LATEST NEWS</div>
+  </div>
+  <div class="news-page" id="newsList"></div>
+</section>
+
+<!-- ══════════════════ POLLS ══════════════════ -->
+<section id="gcl-polls" class="pg">
+  <div class="page-hdr">
+    <div class="page-title">FAN POLLS</div>
+  </div>
+  <div class="polls-page" id="pollList"></div>
+</section>
+
+<!-- ══════════════════ STANDINGS ══════════════════ -->
+<section id="gcl-standings" class="pg">
+  <div class="page-hdr">
+    <div class="page-title">STANDINGS</div>
+  </div>
+  <div class="standings-wrap">
+    <div class="standings-filters">
+      <select id="st-gender" class="fsel" onchange="renderStandings()">
+        <option value="">All Genders</option>
+        <option>Boys</option><option>Girls</option><option>Both</option>
+      </select>
+      <select id="st-sport" class="fsel" onchange="renderStandings()"></select>
+      <select id="st-year" class="fsel" onchange="renderStandings()"></select>
+    </div>
+    <div id="standingsBody"></div>
+  </div>
+</section>
+
+<!-- ══════════════════ PREDICTOR ══════════════════ -->
+<section id="gcl-predictor" class="pg">
+  <div class="page-hdr"><div class="page-title">PLAYOFF PREDICTOR</div></div>
+  <div class="pred-wrap">
+    <div class="pred-header-card">
+      <div class="pred-filters">
+        <div class="frow"><label>Gender</label>
+          <select id="pred-gender" class="fsel" onchange="renderPredictor()">
+            <option>Boys</option><option>Girls</option><option>Both</option>
+          </select>
+        </div>
+        <div class="frow"><label>Sport</label><select id="pred-sport" class="fsel" onchange="renderPredictor()"></select></div>
+        <div class="frow"><label>Season</label><select id="pred-year" class="fsel" onchange="renderPredictor()"></select></div>
+      </div>
+    </div>
+    <div class="pred-info-banner">
+      <span class="pib-icon">🏆</span>
+      Top 12 teams qualify for playoffs · Rankings-based odds
+    </div>
+    <div id="pred-results" class="pred-results"></div>
+  </div>
+</section>
+
+<!-- ══════════════════ GAME OF WEEK ══════════════════ -->
+<section id="gcl-gotw" class="pg">
+  <div class="page-hdr"><div class="page-title">GAME OF THE WEEK</div></div>
+  <div class="gotw-page">
+    <div class="gotw-sport-tabs" id="gotw-sport-tabs"></div>
+    <div id="gotw-display"></div>
+  </div>
+</section>
+
+<!-- ══════════════════ LOGIN ══════════════════ -->
+<section id="gcl-login" class="pg">
+  <div class="login-page">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="login-shield">
+          <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 4 L74 18 L74 56 C74 74 58 86 40 92 C22 86 6 74 6 56 L6 18 Z" fill="#e8192c"/>
+            <path d="M40 10 L68 22 L68 56 C68 72 54 82 40 88 C26 82 12 72 12 56 L12 22 Z" fill="#0a0a10"/>
+            <path d="M46 24 L32 46 L42 46 L36 68 L54 42 L44 42 L50 24 Z" fill="#e8192c"/>
+          </svg>
+        </div>
+        <div>
+          <div class="login-brand-name">CIN·POWER</div>
+          <div class="login-brand-sub">Admin Access</div>
+        </div>
+      </div>
+      <div class="frow"><label>Username</label><input id="li-user" placeholder="Username" autocomplete="off"></div>
+      <div class="frow"><label>Password</label><input id="li-pass" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')checkLogin()"></div>
+      <button class="redbtn" style="width:100%;padding:13px;margin-top:6px;font-size:15px;letter-spacing:2px" onclick="checkLogin()">SIGN IN</button>
+      <div id="li-err" class="err-msg" style="text-align:center"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ADMIN ══════════════════ -->
+<section id="gcl-admin" class="pg admin-pg">
+  <div class="admin-hdr">
+    <div class="page-title" style="margin:0">ADMIN PANEL</div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <span id="session-badge" class="session-badge"></span>
+      <button class="back-btn" style="margin:0" onclick="logout()">Logout</button>
+    </div>
+  </div>
+  <div class="tabs" id="adminTabs"></div>
+
+  <!-- NEWS -->
+  <div id="admin-news-sec" class="asec act">
+    <div class="aform">
+      <h3>Post Article</h3>
+      <div class="frow"><label>Headline</label><input id="n-head" placeholder="e.g. Anderson dominates rival..."></div>
+      <div class="frow"><label>Article Body</label><textarea id="n-body" rows="3" placeholder="Article text..."></textarea></div>
+      <div class="frow2">
+        <div class="frow"><label>Sport Tag</label><select id="n-tag" class="fsel" style="width:100%"></select></div>
+        <div class="frow"><label>Image URL (opt.)</label><input id="n-img" placeholder="https://..."></div>
+      </div>
+      <button class="redbtn" onclick="addNews()">Publish Article</button>
+      <div id="n-msg" class="ok"></div>
+    </div>
+    <div class="admin-list-title">Published Articles</div>
+    <div id="admin-news-list"></div>
+  </div>
+
+  <!-- POLLS -->
+  <div id="admin-polls-sec" class="asec">
+    <div class="aform">
+      <h3>Create Poll</h3>
+      <div class="frow"><label>Question</label><input id="p-q" placeholder="e.g. Who wins the City title?"></div>
+      <div class="frow2">
+        <div class="frow"><label>Option 1</label><input id="p-a" placeholder="Team A"></div>
+        <div class="frow"><label>Option 2</label><input id="p-b" placeholder="Team B"></div>
+      </div>
+      <button class="redbtn" onclick="addPoll()">Create Poll</button>
+      <div id="p-msg" class="ok"></div>
+    </div>
+    <div class="admin-list-title">All Polls</div>
+    <div id="admin-polls-list"></div>
+  </div>
+
+  <!-- SCHOOLS -->
+  <div id="admin-schools-sec" class="asec">
+    <div class="aform">
+      <h3>Add School</h3>
+      <div class="frow2">
+        <div class="frow"><label>School Name</label><input id="s-name" placeholder="e.g. Anderson HS"></div>
+        <div class="frow"><label>Logo URL</label><input id="s-logo" placeholder="https://..."></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Gender</label>
+          <select id="s-gender" class="fsel" style="width:100%">
+            <option>Boys</option><option>Girls</option><option>Both</option>
+          </select>
+        </div>
+        <div class="frow"><label>Sport</label><select id="s-sport" class="fsel" style="width:100%"></select></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Record (W-L)</label><input id="s-record" placeholder="8-2"></div>
+        <div class="frow"><label>Conf. Record</label><input id="s-conf" placeholder="5-1"></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Season Year</label><input id="s-year" value="2025-26"></div>
+        <div class="frow"><label>Streak</label><input id="s-streak" placeholder="W3 or L1"></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Coach</label><input id="s-coach" placeholder="Coach name"></div>
+        <div class="frow"><label>City / Division</label><input id="s-city" placeholder="e.g. Cincinnati, OH · DIII"></div>
+      </div>
+      <div class="frow"><label>School Bio</label><textarea id="s-desc" rows="2" placeholder="Brief team description..."></textarea></div>
+      <div class="frow2">
+        <div class="frow"><label>State Championships (years)</label><input id="s-champs" placeholder="e.g. 2018, 2021, 2023"></div>
+        <div class="frow"><label>Notable Players</label><input id="s-players" placeholder="e.g. John Smith, Jane Doe"></div>
+      </div>
+      <div class="frow"><label>Home Field / Arena</label><input id="s-venue" placeholder="e.g. Mustang Stadium"></div>
+      <button class="redbtn" onclick="addSchool()">Add School</button>
+      <div id="s-msg" class="ok"></div>
+    </div>
+    <div class="admin-list-title">All Schools</div>
+    <div class="filter-row">
+      <select id="filter-gender" class="fsel" onchange="renderAdminSchools()">
+        <option value="">All Genders</option><option>Boys</option><option>Girls</option><option>Both</option>
+      </select>
+      <select id="filter-sport" class="fsel" onchange="renderAdminSchools()"><option value="">All Sports</option></select>
+    </div>
+    <div id="admin-school-list"></div>
+    <div id="edit-school-modal" class="edit-modal">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--red);margin-bottom:14px">Edit School</h3>
+      <div class="frow2">
+        <div class="frow"><label>School Name</label><input id="e-name"></div>
+        <div class="frow"><label>Logo URL</label><input id="e-logo"></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Gender</label>
+          <select id="e-gender" class="fsel" style="width:100%">
+            <option>Boys</option><option>Girls</option><option>Both</option>
+          </select>
+        </div>
+        <div class="frow"><label>Sport</label><select id="e-sport" class="fsel" style="width:100%"></select></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Record (W-L)</label><input id="e-record"></div>
+        <div class="frow"><label>Conf. Record</label><input id="e-conf"></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Season Year</label><input id="e-year"></div>
+        <div class="frow"><label>Streak</label><input id="e-streak"></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Coach</label><input id="e-coach"></div>
+        <div class="frow"><label>City / Division</label><input id="e-city"></div>
+      </div>
+      <div class="frow"><label>Bio</label><textarea id="e-desc" rows="2"></textarea></div>
+      <div class="frow2">
+        <div class="frow"><label>State Champs (years)</label><input id="e-champs"></div>
+        <div class="frow"><label>Notable Players</label><input id="e-players"></div>
+      </div>
+      <div class="frow"><label>Home Venue</label><input id="e-venue"></div>
+      <div style="display:flex;gap:8px;margin-top:4px">
+        <button class="redbtn" onclick="saveEditSchool()">Save Changes</button>
+        <button class="back-btn" style="margin:0" onclick="closeEdit()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME OF WEEK ADMIN -->
+  <div id="admin-gotw-sec" class="asec">
+    <div class="aform">
+      <h3>Set Game of the Week</h3>
+      <div class="frow2">
+        <div class="frow"><label>Sport</label><select id="g-sport" class="fsel" style="width:100%"></select></div>
+        <div class="frow"><label>Format</label><select id="g-type" class="fsel" style="width:100%"><option value="vs">vs (neutral)</option><option value="at">at (away game)</option></select></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Team 1 Name</label><input id="g-t1" placeholder="Home team"></div>
+        <div class="frow"><label>Team 1 Logo URL</label><input id="g-t1logo" placeholder="https://..."></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Team 2 Name</label><input id="g-t2" placeholder="Away team"></div>
+        <div class="frow"><label>Team 2 Logo URL</label><input id="g-t2logo" placeholder="https://..."></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Date</label><input id="g-date" type="date"></div>
+        <div class="frow"><label>Time</label><input id="g-time" type="time"></div>
+      </div>
+      <div class="frow"><label>Location / Venue</label><input id="g-loc" placeholder="e.g. Mustang Stadium, Cincinnati OH"></div>
+      <div class="frow"><label>Ticket Link</label><input id="g-tickets" placeholder="https://..."></div>
+      <button class="redbtn" onclick="saveGOTW()">Save Game of the Week</button>
+      <div id="g-msg" class="ok"></div>
+    </div>
+    <div class="admin-list-title">Current Games</div>
+    <div id="admin-gotw-list"></div>
+  </div>
+
+  <!-- TICKER -->
+  <div id="admin-ticker-sec" class="asec">
+    <div class="aform">
+      <h3>Ticker Headlines</h3>
+      <div style="display:flex;gap:8px">
+        <input id="tick-new" placeholder="Add headline..." style="flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:9px 12px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none">
+        <button class="redbtn" onclick="addTicker()">Add</button>
+      </div>
+      <div id="ticker-list" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <!-- RIVALRIES (owner) -->
+  <div id="admin-rivalries-sec" class="asec">
+    <div class="aform">
+      <h3>Add Rivalry</h3>
+      <div class="frow2">
+        <div class="frow"><label>School 1</label><input id="r-s1" placeholder="School name"></div>
+        <div class="frow"><label>School 2</label><input id="r-s2" placeholder="School name"></div>
+      </div>
+      <div class="frow2">
+        <div class="frow"><label>Sport</label><select id="r-sport" class="fsel" style="width:100%"></select></div>
+        <div class="frow"><label>Rivalry Name (opt.)</label><input id="r-label" placeholder="e.g. Battle of 275"></div>
+      </div>
+      <button class="redbtn" onclick="addRivalry()">Add Rivalry</button>
+      <div id="r-msg" class="ok"></div>
+    </div>
+    <div class="admin-list-title">All Rivalries</div>
+    <div id="rivalry-list"></div>
+  </div>
+
+  <!-- SPORTS (owner) -->
+  <div id="admin-sports-sec" class="asec">
+    <div class="aform">
+      <h3>Manage Sports</h3>
+      <div style="display:grid;grid-template-columns:1fr 120px auto;gap:8px;align-items:end;margin-bottom:12px">
+        <div class="frow" style="margin:0">
+          <label>Sport Name</label>
+          <input id="sport-new" placeholder="e.g. Lacrosse" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none">
+        </div>
+        <div class="frow" style="margin:0">
+          <label>Season</label>
+          <select id="sport-season" class="fsel" style="width:100%">
+            <option value="Fall">Fall</option>
+            <option value="Winter">Winter</option>
+            <option value="Spring">Spring</option>
+          </select>
+        </div>
+        <button class="redbtn" style="align-self:end" onclick="addSport()">Add</button>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:10px">Sports no longer use icons — gender (Boys/Girls/Both) is set per school entry.</p>
+      <div id="sports-tag-list"></div>
+    </div>
+  </div>
+
+  <!-- ACCOUNTS (owner) -->
+  <div id="admin-accounts-sec" class="asec">
+    <div class="aform">
+      <h3>Admin Accounts</h3>
+      <div class="frow"><label>Username</label><input id="ac-user" placeholder="New admin username"></div>
+      <div class="frow"><label>Password</label><input id="ac-pass" type="password" placeholder="Password"></div>
+      <button class="redbtn" onclick="addAdmin()">Create Admin</button>
+      <div id="ac-msg" class="ok"></div>
+      <div id="acct-list" style="margin-top:14px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:36px">
+        <path d="M40 4 L74 18 L74 56 C74 74 58 86 40 92 C22 86 6 74 6 56 L6 18 Z" fill="#e8192c"/>
+        <path d="M40 10 L68 22 L68 56 C68 72 54 82 40 88 C26 82 12 72 12 56 L12 22 Z" fill="#0a0a10"/>
+        <path d="M46 24 L32 46 L42 46 L36 68 L54 42 L44 42 L50 24 Z" fill="#e8192c"/>
+      </svg>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:var(--text)">CIN·POWER</div>
+        <div style="font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase">Cincinnati Athletics</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <button onclick="gTab('home')" class="footer-link">Home</button>
+      <button onclick="gTab('news')" class="footer-link">News</button>
+      <button onclick="gTab('polls')" class="footer-link">Polls</button>
+      <button onclick="gTab('standings')" class="footer-link">Standings</button>
+      <button onclick="gTab('predictor')" class="footer-link">Predictor</button>
+    </div>
+    <div class="footer-copy">© 2025–26 CIN·POWER · Greater Cincinnati High School Athletics</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
