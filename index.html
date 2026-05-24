@@ -1,8 +1,9 @@
+cat > /home/claude/cinpower/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>CIN·POWER — Cincinnati High School Athletics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Mono:wght@400;500&display=swap">
@@ -41,7 +42,7 @@
         <span class="nav-admin-icon">⬡</span> Admin
       </button>
     </nav>
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -124,7 +125,6 @@
   <!-- FEATURE SECTION -->
   <div class="home-features">
     <div class="features-grid">
-      <!-- HOT TEAMS -->
       <div class="feat-card feat-hot">
         <div class="feat-card-hdr">
           <div class="feat-label"><span class="feat-icon">🔥</span><span>Top Ranked</span></div>
@@ -132,8 +132,6 @@
         </div>
         <div class="feat-body" id="hot-list"></div>
       </div>
-
-      <!-- NEWS -->
       <div class="feat-card feat-news">
         <div class="feat-card-hdr">
           <div class="feat-label"><span class="feat-icon">📰</span><span>Latest News</span></div>
@@ -141,8 +139,6 @@
         </div>
         <div class="feat-body" id="home-news"></div>
       </div>
-
-      <!-- POLL -->
       <div class="feat-card feat-poll">
         <div class="feat-card-hdr">
           <div class="feat-label"><span class="feat-icon">📊</span><span>Fan Poll</span></div>
@@ -242,10 +238,10 @@
         <th style="width:44px">#</th>
         <th>School</th>
         <th style="width:68px">Record</th>
-        <th style="width:60px">Conf</th>
-        <th style="width:52px">Win%</th>
-        <th style="width:60px">Move</th>
-        <th style="width:52px">Streak</th>
+        <th style="width:60px" class="hide-mobile">Conf</th>
+        <th style="width:52px" class="hide-mobile">Win%</th>
+        <th style="width:60px" class="hide-xs">Move</th>
+        <th style="width:52px" class="hide-xs">Streak</th>
         <th style="width:110px">Rating</th>
       </tr></thead>
       <tbody id="rankBody"></tbody>
@@ -347,9 +343,9 @@
           <div class="login-brand-sub">Admin Access</div>
         </div>
       </div>
-      <div class="frow"><label>Username</label><input id="li-user" placeholder="Username" autocomplete="off"></div>
+      <div class="frow"><label>Username</label><input id="li-user" placeholder="Username" autocomplete="off" autocapitalize="off"></div>
       <div class="frow"><label>Password</label><input id="li-pass" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')checkLogin()"></div>
-      <button class="redbtn" style="width:100%;padding:13px;margin-top:6px;font-size:15px;letter-spacing:2px" onclick="checkLogin()">SIGN IN</button>
+      <button class="redbtn" style="width:100%;padding:15px;margin-top:6px;font-size:15px;letter-spacing:2px" onclick="checkLogin()">SIGN IN</button>
       <div id="li-err" class="err-msg" style="text-align:center"></div>
     </div>
   </div>
@@ -359,7 +355,8 @@
 <section id="gcl-admin" class="pg admin-pg">
   <div class="admin-hdr">
     <div class="page-title" style="margin:0">ADMIN PANEL</div>
-    <div style="display:flex;gap:10px;align-items:center">
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <span id="gist-sync-badge" class="gist-sync-badge"></span>
       <span id="session-badge" class="session-badge"></span>
       <button class="back-btn" style="margin:0" onclick="logout()">Logout</button>
     </div>
@@ -517,7 +514,7 @@
     <div class="aform">
       <h3>Ticker Headlines</h3>
       <div style="display:flex;gap:8px">
-        <input id="tick-new" placeholder="Add headline..." style="flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:9px 12px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none">
+        <input id="tick-new" placeholder="Add headline..." style="flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;min-width:0">
         <button class="redbtn" onclick="addTicker()">Add</button>
       </div>
       <div id="ticker-list" style="margin-top:12px"></div>
@@ -547,10 +544,10 @@
   <div id="admin-sports-sec" class="asec">
     <div class="aform">
       <h3>Manage Sports</h3>
-      <div style="display:grid;grid-template-columns:1fr 120px auto;gap:8px;align-items:end;margin-bottom:12px">
+      <div style="display:grid;grid-template-columns:1fr 110px auto;gap:8px;align-items:end;margin-bottom:12px">
         <div class="frow" style="margin:0">
           <label>Sport Name</label>
-          <input id="sport-new" placeholder="e.g. Lacrosse" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none">
+          <input id="sport-new" placeholder="e.g. Lacrosse" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:9px 12px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none">
         </div>
         <div class="frow" style="margin:0">
           <label>Season</label>
@@ -562,7 +559,6 @@
         </div>
         <button class="redbtn" style="align-self:end" onclick="addSport()">Add</button>
       </div>
-      <p style="font-size:11px;color:var(--muted);margin-bottom:10px">Sports no longer use icons — gender (Boys/Girls/Both) is set per school entry.</p>
       <div id="sports-tag-list"></div>
     </div>
   </div>
@@ -571,13 +567,50 @@
   <div id="admin-accounts-sec" class="asec">
     <div class="aform">
       <h3>Admin Accounts</h3>
-      <div class="frow"><label>Username</label><input id="ac-user" placeholder="New admin username"></div>
+      <div class="frow"><label>Username</label><input id="ac-user" placeholder="New admin username" autocapitalize="off"></div>
       <div class="frow"><label>Password</label><input id="ac-pass" type="password" placeholder="Password"></div>
       <button class="redbtn" onclick="addAdmin()">Create Admin</button>
       <div id="ac-msg" class="ok"></div>
       <div id="acct-list" style="margin-top:14px"></div>
     </div>
   </div>
+
+  <!-- LOG BOOK (owner) -->
+  <div id="admin-logbook-sec" class="asec">
+    <div class="aform" style="max-width:860px">
+      <h3>📋 Activity Log Book</h3>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+        <select id="log-filter-user" class="fsel" onchange="renderActivityLog()">
+          <option value="">All Users</option>
+        </select>
+        <button class="redbtn" style="background:var(--card2);color:var(--redsoft);border:1px solid rgba(248,113,113,.2)" onclick="clearLog()">Clear Log</button>
+        <span style="font-size:11px;color:var(--muted);margin-left:auto">Last 500 entries kept</span>
+      </div>
+      <div id="activity-log-list"></div>
+    </div>
+  </div>
+
+  <!-- SETTINGS (owner) -->
+  <div id="admin-settings-sec" class="asec">
+    <div class="aform">
+      <h3>⚙️ GitHub Gist Sync</h3>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.7">
+        Connect a GitHub Gist so your data persists across deployments.<br>
+        <strong style="color:var(--text)">Setup:</strong><br>
+        1. Go to <a href="https://github.com/settings/tokens" target="_blank" style="color:var(--red)">github.com/settings/tokens</a> → Generate new token (classic) → check <code style="background:var(--surface);padding:1px 5px;border-radius:3px">gist</code> scope → copy token.<br>
+        2. Go to <a href="https://gist.github.com" target="_blank" style="color:var(--red)">gist.github.com</a> → create a NEW secret gist → filename: <code style="background:var(--surface);padding:1px 5px;border-radius:3px">cinpower_data.json</code> → content: <code style="background:var(--surface);padding:1px 5px;border-radius:3px">{}</code> → Create.<br>
+        3. Copy the Gist ID from the URL and paste below.
+      </p>
+      <div class="frow"><label>GitHub Token (gist scope)</label><input id="gist-token-in" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" type="password" autocapitalize="off" autocorrect="off"></div>
+      <div class="frow"><label>Gist ID</label><input id="gist-id-in" placeholder="e.g. a1b2c3d4e5f6..." autocapitalize="off" autocorrect="off"></div>
+      <button class="redbtn" onclick="saveGistSettings()">Save &amp; Test Connection</button>
+      <div id="gist-msg" class="ok"></div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+        <p style="font-size:11px;color:var(--muted2)">⚠ The token is stored only in your browser's localStorage (never sent to any server other than GitHub). Each device/browser needs to re-enter the token. Data is stored in your Gist and loaded automatically on every visit.</p>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- FOOTER -->
@@ -608,3 +641,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+HTMLEOF
+Output
+
+exit code 0
